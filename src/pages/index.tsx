@@ -37,10 +37,9 @@ export const Page: NextPage<PageProps> = (page) => {
     const url = new URL(
       "/api/image",
       `${
-        process.env.NEXT_PUBLIC_VERCEL_URL?.startsWith("localhost") ? "http" : "https"
-      }://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+        process.env.NEXT_PUBLIC_APP_URL?.startsWith("localhost") ? "http" : "https"
+      }://${process.env.NEXT_PUBLIC_APP_URL}`,
     );
-    if (process.env.NEXT_PUBLIC_VERCEL_URL?.startsWith("localhost")) url.protocol = "http";
     url.searchParams.set("icon", iconUrl);
     url.searchParams.set("name", name);
     url.searchParams.set("pattern", pattern.join(""));
@@ -53,8 +52,8 @@ export const Page: NextPage<PageProps> = (page) => {
     const url = new URL(
       "/",
       `${
-        process.env.NEXT_PUBLIC_VERCEL_URL?.startsWith("localhost") ? "http" : "https"
-      }://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+        process.env.NEXT_PUBLIC_APP_URL?.startsWith("localhost") ? "http" : "https"
+      }://${process.env.NEXT_PUBLIC_APP_URL}`,
     );
     url.searchParams.set("icon", iconUrl);
     url.searchParams.set("name", name);
