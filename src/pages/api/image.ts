@@ -109,6 +109,7 @@ const handler: NextApiHandler = async (req, res) => {
       executablePath: await chromium.executablePath,
       args: chromium.args,
       headless: true,
+      ignoreDefaultArgs: ["--disable-extensions"],
       defaultViewport: { ...chromium.defaultViewport, width: 640, height: 480 },
     });
     const page = await browser.newPage();
