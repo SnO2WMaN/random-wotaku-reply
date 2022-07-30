@@ -30,6 +30,12 @@
           imports = [
             (pkgs.devshell.importTOML ./devshell.toml)
           ];
+          env = [
+            {
+              name = "PUPPETEER_EXECUTABLE_PATH";
+              value = "${pkgs.chromium}/bin/chromium";
+            }
+          ];
         };
       }
     );
