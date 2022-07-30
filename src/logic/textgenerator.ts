@@ -1,7 +1,8 @@
 export type Pattern = ("1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "0")[];
 
+const type7List = ["珍棒", "マンゴー", "SEX", "イク"];
 const randomType7 = (s: number) => {
-  return "テスト";
+  return type7List[s % type7List.length];
 };
 const randomType8 = (s: number) => {
   return "ハァッ".repeat((s % 2) + 3);
