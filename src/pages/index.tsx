@@ -26,8 +26,6 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 import isUrl from "is-url";
 
 export const Page: NextPage<PageProps> = (page) => {
-  console.dir(process.env);
-
   const [rawIconURL, setRawIconURL] = useState<string | null>(page.icon);
   const [name, setName] = useState<string | null>(page.name);
   const [rawPattern, setRawPattern] = useState<string | null>(page.pattern);

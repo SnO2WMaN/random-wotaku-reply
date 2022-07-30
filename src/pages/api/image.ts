@@ -123,13 +123,7 @@ const handler: NextApiHandler = async (req, res) => {
     res.send(image);
     return;
   } catch (error) {
-    if (
-      // eslint-disable-next-line no-process-env
-      process.env.NODE_ENV !== "production"
-    ) {
-      // eslint-disable-next-line no-console
-      console.error(error);
-    }
+    console.error(error);
     res.status(500);
     res.end();
     return;
