@@ -1,0 +1,27 @@
+@import "the-new-css-reset";
+
+body {
+  padding: 16px 24px;
+}
+
+input {
+  padding: 4px 8px;
+  border: 1px solid;
+}
+
+h1 {
+  font-size: 1.25rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+
+a::visited {
+  color: purple;
+}
