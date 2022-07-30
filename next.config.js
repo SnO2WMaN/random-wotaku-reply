@@ -5,8 +5,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  images: [
-    process.env.NEXT_PUBLIC_VERCEL_URL,
-  ],
+  images: { domains: [process.env.VERCEL_URL] },
 };
 module.exports = nextConfig;
