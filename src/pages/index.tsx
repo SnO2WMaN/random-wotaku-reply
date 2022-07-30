@@ -103,6 +103,7 @@ export const Page: NextPage<PageProps> = (page) => {
             <input
               type={"url"}
               value={rawIconURL || ""}
+              placeholder={"アイコンURL: https://github.com/github.png"}
               onChange={(e) => {
                 setRawIconURL(e.target.value);
               }}
@@ -110,6 +111,7 @@ export const Page: NextPage<PageProps> = (page) => {
             <input
               type={"name"}
               value={name || ""}
+              placeholder={"表示名: https://github.com/github.png"}
               onChange={(e) => {
                 setName(e.target.value);
               }}
@@ -117,6 +119,7 @@ export const Page: NextPage<PageProps> = (page) => {
             <input
               type={"text"}
               value={rawPattern || ""}
+              placeholder={"パターン: 129346"}
               onChange={(e) => {
                 setRawPattern(e.target.value);
               }}
