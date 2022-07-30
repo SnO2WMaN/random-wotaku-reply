@@ -103,7 +103,7 @@ export const Page: NextPage<PageProps> = (page) => {
             <input
               type={"url"}
               value={rawIconURL || ""}
-              placeholder={"アイコンURL: https://github.com/github.png"}
+              placeholder={"アイコンURL: https://github.com/ghost.png"}
               onChange={(e) => {
                 setRawIconURL(e.target.value);
               }}
@@ -111,7 +111,7 @@ export const Page: NextPage<PageProps> = (page) => {
             <input
               type={"name"}
               value={name || ""}
-              placeholder={"表示名: https://github.com/github.png"}
+              placeholder={"表示名: 単色アイコン"}
               onChange={(e) => {
                 setName(e.target.value);
               }}
