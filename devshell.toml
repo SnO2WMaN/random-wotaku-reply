@@ -2,6 +2,8 @@
 packages = [
   "alejandra",
   "dprint",
+  "nodejs-14_x",
+  "nodePackages.pnpm",
 ]
 
 [[commands]]
