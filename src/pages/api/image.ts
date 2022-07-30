@@ -31,7 +31,7 @@ export const getHtml = ({ icon, pattern, name }: { icon: string; name: string; p
         background: var(--background-color);
         position: relative;
 
-        width: 640px;
+        width: 912px;
         height: 480px;
         box-sizing: border-box;
 
@@ -110,7 +110,7 @@ const handler: NextApiHandler = async (req, res) => {
       args: chromium.args,
       headless: true,
       ignoreDefaultArgs: ["--disable-extensions"],
-      defaultViewport: { ...chromium.defaultViewport, width: 640, height: 480 },
+      defaultViewport: { ...chromium.defaultViewport, width: 912, height: 480 },
     });
     const page = await browser.newPage();
     await page.setContent(getHtml({ icon: escape(rawIcon), name: escape(rawName), pattern }), {
