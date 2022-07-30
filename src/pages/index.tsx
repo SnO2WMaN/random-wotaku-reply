@@ -26,6 +26,8 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 import isUrl from "is-url";
 
 export const Page: NextPage<PageProps> = (page) => {
+  console.dir(process.env);
+
   const [rawIconURL, setRawIconURL] = useState<string | null>(page.icon);
   const [name, setName] = useState<string | null>(page.name);
   const [rawPattern, setRawPattern] = useState<string | null>(page.pattern);
@@ -34,7 +36,13 @@ export const Page: NextPage<PageProps> = (page) => {
   const iconUrl = useMemo(() => (rawIconURL && isUrl(rawIconURL)) && rawIconURL, [rawIconURL]);
   const imageUrl = useMemo(() => {
     if (!iconUrl || !name || !pattern) return null;
-    const url = new URL("http://localhost:3000/api/image");
+    const url = new URL(
+      "/api/image",
+      `${
+        process.env.NEXT_PUBLIC_VERCEL_URL?.startsWith("localhost") ? "http" : "https"
+      }://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+    );
+    if (process.env.NEXT_PUBLIC_VERCEL_URL?.startsWith("localhost")) url.protocol = "http";
     url.searchParams.set("icon", iconUrl);
     url.searchParams.set("name", name);
     url.searchParams.set("pattern", pattern.join(""));
@@ -44,7 +52,12 @@ export const Page: NextPage<PageProps> = (page) => {
   const clipboard = useClipboard();
   const pageUrl = useMemo(() => {
     if (!iconUrl || !name || !pattern) return null;
-    const url = new URL("http://localhost:3000");
+    const url = new URL(
+      "/",
+      `${
+        process.env.NEXT_PUBLIC_VERCEL_URL?.startsWith("localhost") ? "http" : "https"
+      }://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+    );
     url.searchParams.set("icon", iconUrl);
     url.searchParams.set("name", name);
     url.searchParams.set("pattern", pattern.join(""));
@@ -60,7 +73,12 @@ export const Page: NextPage<PageProps> = (page) => {
         <title>wotaku-reply-generator</title>
         <meta property="og:title" content="wotaku-reply-generator" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://wotaku-reply-generator.vercel.app" />
+        <meta
+          property="og:url"
+          content={`${
+            process.env.NEXT_PUBLIC_VERCEL_URL?.startsWith("localhost") ? "http" : "https"
+          }://${process.env.NEXT_PUBLIC_VERCEL_URL}`}
+        />
         <meta name="twitter:title" content="wotaku-reply-generator" />
         <meta name="twitter:creator" content="@SnO2WMaN" />
         {imageUrl && (
