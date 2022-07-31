@@ -35,7 +35,7 @@ export const mkText = (pattern: Pattern): string => {
 export const splitPattern = (raw: string): Pattern | null => {
   if (raw.length === 0) return null;
   const arr = raw.split("") as Pattern;
-  if (!arr.every((c) => "123456789".includes(c))) {
+  if (!arr.every((c) => "1234567890".includes(c))) {
     return null;
   }
   return arr;
