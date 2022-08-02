@@ -184,6 +184,11 @@ export const Page: NextPage<PageProps> = (page) => {
             </a>
           </p>
         </div>
+        <footer className={css({ marginBlockStart: "16px" })}>
+          <p>
+            Source is <a href="https://github.com/SnO2WMaN/random-wotaku-reply">on GitHub</a>
+          </p>
+        </footer>
       </main>
     </>
   );
